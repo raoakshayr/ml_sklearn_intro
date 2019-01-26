@@ -1,0 +1,343 @@
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[a4paper, total={6.5in, 10in}]{geometry}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{blkarray}
+\usepackage{float}
+\usepackage{changepage}
+
+
+%\usepackage{kbordermatrix}% http://www.hss.caltech.edu/~kcb/TeX/kbordermatrix.sty
+
+
+
+
+\title{\Huge MTLS INFORMATICS PROJECT-2}
+\huge
+\author{\LARGE \textbf{Kashyap Nagaraja}\hspace{0.4 cm}(UIN:126003913)}
+\begin{document}	
+
+\maketitle
+\huge		
+\begin{center}
+\textbf{\underline{ASSIGNMENT-1}}
+\end{center}
+\normalsize
+%\newline
+The data sample from a homoskedastic gaussian are simulated for 1000 runs for the sample sizes 20,30,40,50,60. In each iteration the performance of 3NN and LDA for true error, apparent error, cv and loo based error, RMS and variance of the error difference are noted. A test set with 400 samples is taken for estimating true error.
+\newline
+
+\textbf{(a)}
+\begin{center}
+
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.65]{q1a_true_error.jpeg} 
+\caption{Plot showing true error behaviour of LDA and KNN classifiers as a function of number of samples.}.
+
+\end{figure}
+\end{center}
+\newpage
+\textbf{Comments:}
+\newline
+\begin{itemize}
+\item As we can see in the graphs the true error is better for LDA when compared to KNN. We can see if there are any overfitting effects when we study about apparent error.
+\item This is expected since LDA generally has better performance than KNN for smaller sample sizes. However if the sample sizes are in the range of thousands then LDA might not be the best choice.
+\item With the increase in number of samples the true error tends to decrease as expected.
+\end{itemize}
+
+%\newline
+
+\textbf{(b)}
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.65]{q1b_app_1.jpeg} 
+\caption{Plot showing comparison of true error and apparent error for $\sigma=1$ for both 3NN and LDA.}
+
+\end{figure}
+\end{center}
+\newpage
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.42]{q1b_app_2.jpeg} 
+\caption{Plot showing comparison of true and apparent error for $\sigma=2$ for 3NN and LDA.}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.42]{q1b_cv_1.jpeg} 
+\caption{Plot showing comparison of true and 5 fold cv based error for $\sigma=1$ for both 3NN and LDA.}
+\end{figure}
+\end{center}
+\newpage
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.42]{q1b_cv_2.jpeg} 
+\caption{Plot showing comparison of true and 5 fold cv based error for $\sigma=2$ for both 3NN and LDA.}
+
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.42]{q1b_loo_1.jpeg} 
+\caption{Plot showing comparison of true and loo error for $\sigma=1$ for 3NN and LDA}
+
+\end{figure}
+\end{center}
+\newpage
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.65]{q1b_loo_2.jpeg} 
+\caption{Plot showing comparison of true error and leave one out error for $\sigma=2$ for both 3NN and LDA.}
+
+\end{figure}
+\end{center}
+
+
+From the figures 2 to 7 represent the comparison of apparent, 5 fold cv and leave one out cv errors for LDA and 3NN. \newline
+
+\textbf{Comments:}
+\begin{itemize}
+
+\item As expected the error decreases with more samples in all cases.
+\item We can see from the graphs that the apparent error is \textbf{lesser} in case of knn as opposed to lda. However the true error is lesser in lda which means that KNN is more prone to \textbf{overfitting.}
+
+\item The one fold cross validation has the least errors among all of them as the ratio of training test to test set is very high. this is especially observed in case of knn.
+
+\item We can see that apparent error is more optimistically biased whereas cv and loo have more variances.
+
+ 
+\end{itemize}
+
+
+
+
+\newpage
+
+\textbf{(c)}
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.43]{q1c_rms_app.jpeg} 
+\caption{Plot showing comparison of RMS apparent error for 3NN and LDA.}
+\end{figure}
+\end{center}
+
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.45]{q1c_var_app.jpeg} 
+\caption{Plot showing comparison of variance of apparent error for 3NN and LDA.}
+
+
+\end{figure}
+\end{center}
+
+%%%%CV-RMS%%%%
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.43]{q1c_rms_cv.jpeg} 
+\caption{Plot showing comparison of RMS of 5-fold cv error for 3NN and LDA.}
+\end{figure}
+\end{center}
+
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.43]{q1c_var_cv.jpeg} 
+\caption{Plot showing comparison of variance of 5-fold cv error for for 3NN and LDA}
+
+\end{figure}
+\end{center}
+
+%%%LOO-RMS%%%
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.43]{q1c_rms_loo.jpeg} 
+\caption{Plot showing comparison of RMS of leave one out error for 3NN and LDA.}
+\end{figure}
+\end{center}
+
+
+\begin{center}
+\begin{figure}[H]
+\hspace{2 cm}
+\includegraphics[scale=0.43]{q1c_var_loo.jpeg} 
+\caption{Plot showing comparison of variance of leave one out error for 3NN and LDA.}
+
+\end{figure}
+\end{center}
+
+
+
+
+\textbf{Comments:}
+\newline
+\begin{itemize}
+
+
+
+\item It can be observed that both RMS and variance decreases with the increase in value of n as expected.
+
+\item We can see that the for LDA the variance and RMS of the apparent error is high whereas for 3NN it is low. However when it comes to cv and leave one out LDA has a better 
+performance. 
+
+\end{itemize}
+
+\huge		
+\begin{center}
+\textbf{\underline{ASSIGNMENT-2}}
+\end{center}
+\normalsize
+
+Here Exhaustive feature selection and Sequential forward search methods were employed to find best five put of seven variables. \newline \newline
+We are going to have two tables one each for exhaustive search and sequential forward search. \newline \newline
+We have employed two algorithms namely linear discriminant analysis and 3 nearest neighbourhood to evaluate this.
+\newline
+
+
+%\newline
+
+
+\begin{center}
+ \begin{adjustwidth}{-1.5cm}{}
+\small
+\begin{tabular}{c c c c c c c}
+\textbf{Top n ftrs, n=} \cellcolor{red!35} & \textbf{Features(LDA)} \cellcolor{red!35} & \textbf{Features(3NN)} \cellcolor{red!35} & \textbf{lda-app err} \cellcolor{red!35} & \textbf{3NN-app err} \cellcolor{red!35}& \textbf{lda-test err} \cellcolor{red!35}& \textbf{3NN-test err} \cellcolor{red!35} \\ [0.5cm]\hline \hline
+
+1 \cellcolor{yellow!35} & Fe \cellcolor{yellow!35}& Mn \cellcolor{yellow!35} & 0.08 \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35}& 0.1224 \cellcolor{yellow!35}& 0.1326 \cellcolor{yellow!35} \\ [0.5cm]
+
+2 \cellcolor{green!50} & C,Fe \cellcolor{green!50} & C,Mn \cellcolor{green!50}& 0.04 \cellcolor{green!50} & 0.04 \cellcolor{green!50}& 0.1224 \cellcolor{green!50}& 0.1326 \cellcolor{green!50} \\ [0.5cm]
+
+3 \cellcolor{yellow!35} & C,Cr,Fe \cellcolor{yellow!35} & C,Fe,Ni \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35}& 0.102 \cellcolor{yellow!35}& 0.102 \cellcolor{yellow!35} \\ [0.5cm]
+
+4 \cellcolor{green!50} & C,Cr,Fe,Mn \cellcolor{green!50} & C,Cr,Fe,Ni \cellcolor{green!50}& 0.04 \cellcolor{green!50} & 0.04 \cellcolor{green!50}& 0.051 \cellcolor{green!50}& 0.0714 \cellcolor{green!50} \\ [0.5cm]
+
+5 \cellcolor{yellow!35} & Cr,Fe,Mn,N,Ni \cellcolor{yellow!35} & C,Cr,Fe,Mn,Ni \cellcolor{yellow!35} & 0.00 \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35}& 0.051 \cellcolor{yellow!35}& 0.0714 \cellcolor{yellow!35} \\ [0.5cm]
+
+%\textbf{high} \cellcolor{red!35} & 45 \cellcolor{green!50} & 12  \cellcolor{green!50} \\ [0.5cm]
+
+%\textbf{low} \cellcolor{red!35} & 9 \cellcolor{green!50} & 65 \cellcolor{green!50} \\ [0.5cm]
+
+
+\end{tabular}
+\end{adjustwidth}
+\end{center}
+\hspace{4 cm} Table 1: Error table for exhaustive feature search .
+\newline \newline
+%%%%Sequential Forward Search%%%%%
+\begin{center}
+ \begin{adjustwidth}{-1.5cm}{}
+\small
+\begin{tabular}{c c c c c c c}
+\textbf{Top n ftrs, n=} \cellcolor{red!35} & \textbf{Features(LDA)} \cellcolor{red!35} & \textbf{Features(3NN)} \cellcolor{red!35} & \textbf{lda-app err} \cellcolor{red!35} & \textbf{3NN-app err} \cellcolor{red!35}& \textbf{lda-test err} \cellcolor{red!35}& \textbf{3NN-test err} \cellcolor{red!35} \\ [0.5cm]\hline \hline
+
+1 \cellcolor{yellow!35} & Fe \cellcolor{yellow!35}& Mn \cellcolor{yellow!35} & 0.08 \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35}& 0.1224 \cellcolor{yellow!35}& 0.234 \cellcolor{yellow!35} \\ [0.5cm]
+
+2 \cellcolor{green!50} & C,Fe \cellcolor{green!50} & C,Mn \cellcolor{green!50}& 0.04 \cellcolor{green!50} & 0.04 \cellcolor{green!50}& 0.1224 \cellcolor{green!50}& 0.224 \cellcolor{green!50} \\ [0.5cm]
+
+3 \cellcolor{yellow!35} & C,Cr,Fe \cellcolor{yellow!35} & C,Mn,N \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35}& 0.102 \cellcolor{yellow!35}& 0.234 \cellcolor{yellow!35} \\ [0.5cm]
+
+4 \cellcolor{green!50} & C,Cr,Fe,Mn \cellcolor{green!50} & C,Mn,N,Si \cellcolor{green!50}& 0.04 \cellcolor{green!50} & 0.04 \cellcolor{green!50}& 0.051 \cellcolor{green!50}& 0.1326 \cellcolor{green!50} \\ [0.5cm]
+
+5 \cellcolor{yellow!35} & C,Cr,Fe,Mn,N \cellcolor{yellow!35} & C,Mn,N,Si,Cr \cellcolor{yellow!35} & 0.04 \cellcolor{yellow!35} & 0.08 \cellcolor{yellow!35}& 0.0714 \cellcolor{yellow!35}& 0.112 \cellcolor{yellow!35} \\ [0.5cm]
+
+%\textbf{high} \cellcolor{red!35} & 45 \cellcolor{green!50} & 12  \cellcolor{green!50} \\ [0.5cm]
+
+%\textbf{low} \cellcolor{red!35} & 9 \cellcolor{green!50} & 65 \cellcolor{green!50} \\ [0.5cm]
+
+
+\end{tabular}
+\end{adjustwidth}
+\end{center}
+\hspace{4 cm} Table 2: Error table for Sequential forward feature search.
+\newline \newline
+
+The above tables show the results for best \textbf{n} features for both apparent error and test set error (n=1,2,3,4,5). The results from the above can be compared to the results obtained during the previous assignment.
+\newline
+
+In the above table it can be observed that for exhaustive search features in the row i are not necessarily a subset of features in row (i+1) $\forall i$. However in case of Sequential forward search, features in row i are subset of features in row (i+1) $\forall i$. \newline
+
+If any tie happens w.r.t to either test set or apparent error then we break the tie by selecting the feature which appears first in dictionary.
+
+\newpage
+\Large
+\textbf{Inferences:}
+\normalsize \newline \newline
+\textbf{1. Comparison to feature sets obtained in Project-1 }
+
+
+%\begin{table}[h]
+\begin{center}
+
+%\caption{My caption}
+%\label{my-label}
+\begin{tabular}{c c c}
+\hline
+%\setlength{\extrarowheight}{0.3cm}
+\large
+\textbf{Predictor} \cellcolor{green!35} & \textbf{t-value} \cellcolor{green!35} & \textbf{p-value} \cellcolor{green!35} \\ [0.5cm]\hline
+\hline C   \cellcolor{yellow!35}      & -11.896 \cellcolor{yellow!35} &  \cellcolor{yellow!35} 4.344X$10^{-13}$ \cellcolor{yellow!35}      \\[0.5cm] 
+ Mn   \cellcolor{orange!35}     & -10.659\cellcolor{orange!35} &   1.504X$10^{-12}$ \cellcolor{orange!35}      \\[0.5cm] 
+ Fe  \cellcolor{yellow!35}      & 8.212 \cellcolor{yellow!35}  & 5.905 X$10^{-10}$       \cellcolor{yellow!35} \\[0.5cm]
+ Ni \cellcolor{orange!35}       & -7.258 \cellcolor{orange!35}   &   1.737X$10^{-08}$     \cellcolor{orange!35} \\[0.5cm]
+ Cr   \cellcolor{yellow!35}     & -6.325 \cellcolor{yellow!35}   & 3.512X$10^{-07}$ \cellcolor{yellow!35}       \\[0.5cm]  
+\end{tabular} 
+\end{center}
+
+%\end{table}
+%\newline
+
+\hspace{2 cm} Table 3: Displaying the t-statistic and p-values for the top 5 predictors.
+\newline
+
+The features were obtained using the t-test in Project-1. The table for the same is reproduced above. 
+
+As reported in previous project report of mine, the errors for three, four and five predictors are respectively 0.15, 0.16 and 0.13 for LDA. However if we compare this to LDA in the above column, the test set errors are much lesser. This is because we have taken the best of all combinations. Even in Sequential forward search we have better results. this is expected because we do not consider multivariate relationships in the case of simple t-test.
+
+The exhaustive feature search takes care of multivariate relationships and it is the gold standard. \newline \newline
+\textbf{2. Comparison of feature sets and error estimators }
+
+By seeing the tables 1 and 2 we can infer that:
+\begin{itemize}
+\item The feature sets selected in the exhaustive search are the best set of features you can obtain for a given value of n. 
+
+\item For any given feature set the error of sequential forward search is lesser than or equal to that obtained by exhaustive search
+
+\item As we can see as we increase the number of features the performance of the SFS gets worse when compared to exhaustive feature set. This is expected because in sequential forward search if one bad feature is selected at any stage, that is carried to all the subsequent stages. \newline 
+\end{itemize}
+\textbf{3. Effect of sample size}
+\begin{itemize}
+\item If more samples were available then we do not have to face too many ties as we have faced here so that the feature selection would be more robust. In many cases especially in the sequential search, we might select wrong feature by breaking the tie.
+
+\item If more samples were available then we could do validation set method instead of using apparent error method which will give low bias, low variance results.
+
+\item Also with more samples since there would be less ties, better features would be picked especially in the case of sequential forward search.
+
+\item Optimistic bias will also decrease with increase in sample size.
+
+
+\end{itemize}
+
+
+
+\end{document}
